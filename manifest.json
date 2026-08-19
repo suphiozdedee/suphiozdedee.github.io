@@ -1,0 +1,51 @@
+{
+  "id": "/",
+  "short_name": "PlanicWorks",
+  "name": "PlanicWorks — Proje & Operasyon Yönetimi",
+  "description": "Fuar ve sergi projelerini yöneten B2B SaaS platformu",
+  "categories": ["business", "productivity"],
+  "lang": "tr",
+  "dir": "ltr",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "theme_color": "#0A0A0D",
+  "background_color": "#0A0A0D",
+  "icons": [
+    {
+      "src": "/brand/planicworks-icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/planicworks-icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Ana Sayfa",
+      "url": "/dashboard",
+      "icons": [{ "src": "/brand/planicworks-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Briefler",
+      "short_name": "Briefler",
+      "url": "/briefs",
+      "icons": [{ "src": "/brand/planicworks-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Projeler",
+      "short_name": "Projeler",
+      "url": "/projects",
+      "icons": [{ "src": "/brand/planicworks-icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,1 @@
+function e(e=new Date){const r=e instanceof Date?e.getFullYear():/^\d{4}$/.test(String(e||"").trim())?Number(e):new Date(e).getFullYear();if(!Number.isInteger(r)||r<2e3||r>2100)throw new Error("Geçersiz arşiv yılı.");return String(r)}export{e as r};

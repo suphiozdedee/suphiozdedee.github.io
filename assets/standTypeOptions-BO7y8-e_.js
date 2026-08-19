@@ -1,0 +1,1 @@
+function a(a){return{ahsap:"Ahşap",maksima:"Maksima",maxima:"Maksima",ahsap_maksima:"Maksima-Ahşap",maksima_ahsap:"Maksima-Ahşap",wood_maxima:"Maksima-Ahşap",maxima_wood:"Maksima-Ahşap",ic_mimari:"İç Mimari",interior:"İç Mimari"}[String(a||"").trim().toLocaleLowerCase("tr-TR").replaceAll(" ","_").replaceAll("-","_")]||String(a||"Belirtilmedi")}export{a as g};

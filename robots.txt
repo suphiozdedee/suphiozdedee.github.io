@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://planicworks.com/sitemap.xml
