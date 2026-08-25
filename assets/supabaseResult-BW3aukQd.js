@@ -1,0 +1,1 @@
+async function r(r,e={}){return function(r,e={}){const{requireRows:a=!1,emptyMessage:o="İşlem hedef kaydı bulamadı."}=e;if(r?.error)throw r.error;if(a){const e=r?.data;if(!(Array.isArray(e)?e.length>0:Boolean(e)))throw new Error(o)}return r}(await r,e)}export{r as e};
