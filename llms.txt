@@ -1,7 +1,7 @@
 ## Pages
-- [| Projenic Design](/forgotpassword): Şifrenizi sıfırlayın
-- [| Projenic Design](/login): Projenic Design platformuna giriş yapın
-- [| Projenic Design](/resetpassword): Yeni şifre oluşturun
-- [| Projenic Design](/signup): Projenic Design platformuna kayıt olun
-- [Gantt Şeması | Projenic Design](/gantt): Projeleri zaman planında takip edin.
-- [Projeler | Projenic Design](/projects): Tasarım, revize ve operasyon akışındaki projeleri yönetin.
+- [Şifremi Unuttum | PlanicWorks](/forgot-password): Şifre sıfırlama bağlantısı isteyin.
+- [Giriş Yap | PlanicWorks](/login): PlanicWorks platformuna giriş yapın.
+- [Yeni Şifre | PlanicWorks](/reset-password): Yeni şifre oluşturun.
+- [Kayıt Ol | PlanicWorks](/signup): PlanicWorks platformuna kayıt olun.
+- [Gantt Şeması | PlanicWorks](/gantt): Projeleri zaman planında takip edin.
+- [Projeler | PlanicWorks](/projects): Tasarım, revize ve operasyon akışındaki projeleri yönetin.
