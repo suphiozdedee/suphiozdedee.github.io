@@ -1,0 +1,1 @@
+import{c as r}from"./App-BEZkPuTd.js";async function t({projectId:t,notes:e=""}){if(!t)throw new Error("Bir sorun oluştu. Lütfen tekrar deneyin.");const{data:o,error:n}=await r.rpc("complete_operation_delivery",{p_project_id:t,p_notes:e.trim()||null});if(n||"completed"!==o?.status)throw new Error("Bir sorun oluştu. Lütfen tekrar deneyin.");return o}export{t as c};
