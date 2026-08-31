@@ -1,1 +1,0 @@
-import{j as r}from"./vendor-react-CiKsymqD.js";import{N as o,O as s}from"./vendor-router-B-CvzlHh.js";import{u as e,g as a}from"./App-BKe8PA30.js";function t(){const{user:t}=e();return"super_admin"!==t?.global_role?r.jsx(o,{to:a(t),replace:!0}):r.jsx(s,{})}export{t as default};
