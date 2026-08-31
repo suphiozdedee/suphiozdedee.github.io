@@ -1,0 +1,1 @@
+import{j as r}from"./vendor-react-CrypylSO.js";import{N as o,O as s}from"./vendor-router-IM-1W4sT.js";import{u as e,g as t}from"./App-nrAgLHTR.js";function a(){const{user:a}=e();return"super_admin"!==a?.global_role?r.jsx(o,{to:t(a),replace:!0}):r.jsx(s,{})}export{a as default};
