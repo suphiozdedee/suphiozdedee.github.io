@@ -15,14 +15,14 @@
   "background_color": "#0A0A0D",
   "icons": [
     {
-      "src": "/brand/planicworks-icon.png",
-      "type": "image/png",
+      "src": "/brand/web/planicworks-icon-192.jpg",
+      "type": "image/jpeg",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "/brand/planicworks-icon.png",
-      "type": "image/png",
+      "src": "/brand/web/planicworks-icon-512.jpg",
+      "type": "image/jpeg",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
@@ -32,19 +32,19 @@
       "name": "Dashboard",
       "short_name": "Ana Sayfa",
       "url": "/dashboard",
-      "icons": [{ "src": "/brand/planicworks-icon.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/brand/web/planicworks-icon-192.jpg", "sizes": "192x192", "type": "image/jpeg" }]
     },
     {
       "name": "Briefler",
       "short_name": "Briefler",
       "url": "/briefs",
-      "icons": [{ "src": "/brand/planicworks-icon.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/brand/web/planicworks-icon-192.jpg", "sizes": "192x192", "type": "image/jpeg" }]
     },
     {
       "name": "Projeler",
       "short_name": "Projeler",
       "url": "/projects",
-      "icons": [{ "src": "/brand/planicworks-icon.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/brand/web/planicworks-icon-192.jpg", "sizes": "192x192", "type": "image/jpeg" }]
     }
   ],
   "prefer_related_applications": false

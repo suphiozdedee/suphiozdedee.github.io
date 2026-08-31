@@ -1,0 +1,1 @@
+import{r as e}from"./vendor-react-CrypylSO.js";function r({enabled:r=!0}={}){return{authorizeForUpload:e.useCallback(()=>Promise.resolve(!0),[]),authorized:!0,authorizing:!1,canSelectFileImmediately:Boolean(r),preparing:!1,requiresAuthorization:!1}}export{r as u};
