@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://apis.google.com https://accounts.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob: https:; frame-src 'self' blob: https://accounts.google.com https://drive.google.com https://iyghurinnageavhrctbd.supabase.co; worker-src 'self' blob:; connect-src 'self' https://iyghurinnageavhrctbd.supabase.co wss://iyghurinnageavhrctbd.supabase.co https://api.frankfurter.dev https://open.er-api.com https://www.googleapis.com https://accounts.google.com https://r.jina.ai https://www.tradefairdates.com https://cloudflareinsights.com; form-action 'self'; manifest-src 'self'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="build-version" content="2026.07.23.2032" />
+
+    <!-- ─── Viewport & PWA ─────────────────────────────────────── -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0D" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0A0A0D" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- ─── PWA / Add to Home Screen ──────────────────────────── -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PlanicWorks" />
+    <meta name="application-name" content="PlanicWorks" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- ─── Icons ─────────────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/brand/planicworks-favicon.svg" />
+    <link rel="apple-touch-icon" href="/brand/planicworks-icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/brand/planicworks-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/brand/planicworks-icon.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/brand/planicworks-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/planicworks-icon.png" />
+    <!-- iPhone 17 Pro Max (430x932 logical) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/brand/planicworks-icon.png" />
+
+    <!-- ─── SEO ───────────────────────────────────────────────── -->
+    <meta data-planicworks-static-seo-meta name="description" content="PlanicWorks brief, proje, tasarım, revize, teklif, operasyon, stok, sohbet, dosya ve teslimat akışının nasıl doğrulandığını inceleyin." />
+    <meta data-planicworks-static-seo-meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title data-planicworks-static-seo-meta>PlanicWorks Ürün Doğrulama Kaydı</title>
+
+    <style>
+      :root {
+        color-scheme: dark;
+        --planicworks-bg: #0a0a0d;
+        --planicworks-panel: #14161a;
+        --planicworks-surface: #1e2329;
+        --planicworks-primary: #3b82f6;
+        --planicworks-text: #f3f4f6;
+        --planicworks-muted: #a1a1aa;
+        --planicworks-font:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "SF Pro Text",
+          "SF Pro Display",
+          "Helvetica Neue",
+          "Segoe UI Variable",
+          "Segoe UI",
+          sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: var(--planicworks-bg);
+        color: var(--planicworks-text);
+        font-family: var(--planicworks-font);
+        width: 100%;
+        min-height: 100%;
+        /* position:fixed kaldırıldı — iOS Safari'de scroll kırıyordu */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      #root {
+        width: 100%;
+        min-height: 100dvh; /* dynamic viewport height — iOS toolbars dahil */
+      }
+
+      .planicworks-boot {
+        position: relative;
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 0%, rgba(59, 130, 246, 0.12), transparent 30%),
+          radial-gradient(circle at 82% 12%, rgba(245, 158, 11, 0.06), transparent 28%),
+          linear-gradient(180deg, #0a0a0d 0%, #08090b 100%);
+      }
+
+      .planicworks-boot::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+        background-size: 48px 48px;
+        -webkit-mask-image: linear-gradient(180deg, black 0%, black 64%, transparent 100%);
+                mask-image: linear-gradient(180deg, black 0%, black 64%, transparent 100%);
+        opacity: 0.55;
+      }
+
+      .planicworks-boot::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: url('/brand/architectural-sketch-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.04;
+        z-index: -1;
+      }
+
+      .planicworks-boot-card {
+        position: relative;
+        width: min(360px, calc(100vw - 40px));
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(59, 130, 246, 0.14), transparent 34%),
+          linear-gradient(135deg, rgba(20, 22, 26, 0.92), rgba(10, 10, 13, 0.94));
+        box-shadow:
+          0 18px 55px rgba(0, 0, 0, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        padding: 28px;
+        text-align: left;
+      }
+
+      .planicworks-boot-brand {
+        margin-bottom: 18px;
+        color: var(--planicworks-text);
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .planicworks-boot-brand img {
+        display: block;
+        width: 176px;
+        height: auto;
+        -o-object-fit: contain;
+           object-fit: contain;
+      }
+
+      .planicworks-boot-text {
+        margin: 0;
+        color: var(--planicworks-muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .planicworks-boot-bar {
+        position: relative;
+        height: 3px;
+        margin-top: 22px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .planicworks-boot-bar::after {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 38%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), var(--planicworks-primary));
+        box-shadow: 0 0 22px rgba(59, 130, 246, 0.28);
+        animation: planicworks-load 1.35s ease-in-out infinite;
+      }
+
+      @keyframes planicworks-load {
+        0% { transform: translateX(-105%); }
+        100% { transform: translateX(280%); }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-DFghYM0f.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/_commonjsHelpers-lGe4XDVY.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-CrypylSO.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DRzd4wB0.css">
+      <meta data-planicworks-static-seo-meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <link data-planicworks-static-seo-meta rel="canonical" href="https://planicworks.com/planicworks-urun-dogrulama/" />
+      <meta data-planicworks-static-seo-meta property="og:type" content="website" />
+      <meta data-planicworks-static-seo-meta property="og:site_name" content="PlanicWorks" />
+      <meta data-planicworks-static-seo-meta property="og:locale" content="tr_TR" />
+      <meta data-planicworks-static-seo-meta property="og:title" content="PlanicWorks Ürün Doğrulama Kaydı" />
+      <meta data-planicworks-static-seo-meta property="og:description" content="PlanicWorks brief, proje, tasarım, revize, teklif, operasyon, stok, sohbet, dosya ve teslimat akışının nasıl doğrulandığını inceleyin." />
+      <meta data-planicworks-static-seo-meta property="og:url" content="https://planicworks.com/planicworks-urun-dogrulama/" />
+      <meta data-planicworks-static-seo-meta property="og:image" content="https://planicworks.com/brand/planicworks-social-1200x630.png" />
+      <meta data-planicworks-static-seo-meta property="og:image:width" content="1200" />
+      <meta data-planicworks-static-seo-meta property="og:image:height" content="630" />
+      <meta data-planicworks-static-seo-meta property="og:image:alt" content="PlanicWorks fuar proje ve operasyon yönetimi" />
+      <meta data-planicworks-static-seo-meta name="twitter:card" content="summary_large_image" />
+      <meta data-planicworks-static-seo-meta name="twitter:title" content="PlanicWorks Ürün Doğrulama Kaydı" />
+      <meta data-planicworks-static-seo-meta name="twitter:description" content="PlanicWorks brief, proje, tasarım, revize, teklif, operasyon, stok, sohbet, dosya ve teslimat akışının nasıl doğrulandığını inceleyin." />
+      <meta data-planicworks-static-seo-meta name="twitter:image" content="https://planicworks.com/brand/planicworks-social-1200x630.png" />
+      <script data-planicworks-static-seo-meta type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PlanicWorks","item":"https://planicworks.com/"},{"@type":"ListItem","position":2,"name":"PlanicWorks Ürün Doğrulama Kaydı","item":"https://planicworks.com/planicworks-urun-dogrulama/"}]}</script>
+    <script data-planicworks-static-seo-meta type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"PlanicWorks Ürün Doğrulama Kaydı","description":"PlanicWorks brief, proje, tasarım, revize, teklif, operasyon, stok, sohbet, dosya ve teslimat akışının nasıl doğrulandığını inceleyin.","url":"https://planicworks.com/planicworks-urun-dogrulama/","inLanguage":"tr-TR","isPartOf":{"@id":"https://planicworks.com/#website"},"about":{"@id":"https://planicworks.com/#software"}}</script>
+  <style data-planicworks-static-seo>
+  .seo-static{min-height:100vh;background:#070b12;color:#f8fafc;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+  .seo-static *{box-sizing:border-box}.seo-static a{color:#a9c2ff}.seo-static header,.seo-static main,.seo-static footer{width:min(1120px,calc(100% - 32px));margin:0 auto}
+  .seo-static header{display:flex;min-height:72px;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(148,163,184,.22)}
+  .seo-static header img{width:184px;height:auto}.seo-static nav{display:flex;flex-wrap:wrap;gap:18px}.seo-static nav a{font-size:13px;font-weight:700;text-decoration:none}
+  .seo-static main{padding:72px 0 88px}.seo-static h1{max-width:820px;margin:0;color:#fff;font-size:clamp(38px,6vw,68px);line-height:1;letter-spacing:-.05em}
+  .seo-static .lead{max-width:760px;margin:24px 0 0;color:#b4c0d0;font-size:18px}.seo-static h2{margin:0 0 18px;color:#fff;font-size:28px;letter-spacing:-.03em}
+  .seo-static h3{margin:0;color:#edf3fb;font-size:17px}.seo-static p{color:#9eacbd}.seo-static section{margin-top:64px}.seo-static ol,.seo-static ul{padding-left:20px}
+  .seo-static .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.seo-static article{border:1px solid rgba(148,163,184,.22);border-radius:10px;background:#0d1420;padding:22px}
+  .seo-static article p{margin-bottom:0;font-size:14px}.seo-static details{border-top:1px solid rgba(148,163,184,.22);padding:16px 0}.seo-static summary{font-weight:800}
+  .seo-static footer{border-top:1px solid rgba(148,163,184,.22);padding:26px 0 42px;color:#718096;font-size:12px}
+  @media(max-width:760px){.seo-static header{align-items:flex-start;flex-direction:column;padding:16px 0}.seo-static main{padding-top:52px}.seo-static .grid{grid-template-columns:1fr}.seo-static h1{font-size:40px}}
+</style>
+  </head>
+  <body>
+    <div id="root" style="min-height:100vh;"><div class="seo-static">
+  <header>
+    <a href="/" aria-label="PlanicWorks ana sayfa"><img src="/brand/web/planicworks-wordmark-white.png" alt="PlanicWorks" width="184" height="39" /></a>
+    <nav aria-label="Ana menü"><a href="/fuar-proje-yonetimi/">Proje Yönetimi</a><a href="/fuar-crm-yazilimi/">CRM</a><a href="/fuar-operasyon-yazilimi/">Operasyon</a><a href="/pricing/">Fiyatlar</a><a href="/login/">Giriş</a></nav>
+  </header>
+  <main>
+    <p><a href="/">Ana Sayfa</a> / Ürün Doğrulama Kaydı</p>
+    <h1>PlanicWorks uçtan uca iş akışı nasıl doğrulandı?</h1>
+    <p class="lead">Sentetik bir test şirketi ve rol bazlı ekip ile brief’ten teslimata kadar günlük kullanım akışı çalıştırıldı; ardından test kullanıcıları, kayıtları ve dosyaları temizlendi.</p>
+    <p><a href="/signup/">Şirket hesabı oluştur</a> · <a href="/pricing/">Paketleri incele</a></p>
+    <section><h2>Bu kayıt neyi kanıtlar, neyi kanıtlamaz?</h2><p>Bu sayfa bir müşteri başarı hikâyesi değildir. Üretim müşterisine ait veri, isim, logo, ticari sonuç veya performans iddiası içermez.</p><p>Doğrulama; satış, tasarım, yönetim ve operasyon rollerinin aynı şirket çalışma alanındaki ana iş adımlarını kullanabildiğini, erişim sınırlarının korunduğunu ve sentetik test kalıntılarının temizlenebildiğini gösterir.</p><h3>Kimler bu kaydı incelemeli?</h3><ul><li>Satın alma öncesi ürün kapsamını doğrulamak isteyen şirket sahipleri</li><li>Satış, tasarım ve operasyon sürecini tek sistemde toplamak isteyen yöneticiler</li><li>Rol ve şirket sınırlarının nasıl uygulandığını değerlendiren teknik ekipler</li></ul></section>
+    <section><h2>Sentetik ekip, günlük çalışma zincirini uçtan uca kullandı.</h2><p>Akış gerçek müşteri verisi yerine yalnızca kontrollü test kayıtlarıyla çalıştırıldı.</p><ol><li><strong>Şirket ve ekip kurulumu:</strong> Şirket sahibi, yönetim, satış, tasarım ve operasyon rolleriyle sentetik ekip oluşturuldu.</li><li><strong>Brief, proje ve tasarım:</strong> Müşteri ihtiyacı brief’e, brief projeye dönüştürüldü; tasarım dosyası ve revizyon adımları işlendi.</li><li><strong>Teklif ve onay:</strong> Proje bağlamındaki teklif oluşturuldu, karar durumu takip edildi ve operasyon aşamasına geçirildi.</li><li><strong>Operasyon ve stok:</strong> Üretim, görev, stok ve teslimat adımları yetkili kullanıcılarla tamamlandı.</li><li><strong>Sohbet, dosya ve teslimat:</strong> Ekip iletişimi ve dosya akışı proje içinde doğrulandı; teslimat tamamlandı.</li><li><strong>Temizleme kontrolü:</strong> Test kullanıcıları, kayıtları ve fiziksel test dosyaları silindi; kalıntı kontrolü yapıldı.</li></ol></section>
+    <section><h2>Kontrol edilen ürün ve güvenlik sınırları.</h2><div class="grid"><article><h3>Rol bazlı çalışma</h3><p>Satış, tasarım, operasyon ve yönetim kullanıcılarının yalnızca görev alanlarında çalışması kontrol edildi.</p></article><article><h3>Şirket izolasyonu</h3><p>Kayıt ve dosya erişiminin aktif şirket üyeliği ve yetki kuralları içinde kalması doğrulandı.</p></article><article><h3>Bağlantılı iş zinciri</h3><p>Brief, proje, revizyon, teklif ve operasyon kayıtlarının aynı iş bağlamını koruması test edildi.</p></article><article><h3>Dosya yetkileri</h3><p>Personel ve şirket sahibi için görüntüleme ve dışa aktarma sınırları ayrı ayrı kontrol edildi.</p></article><article><h3>Canlı sürüm kapısı</h3><p>Dağıtım öncesi sözleşme kontrolleri, sürüm kapısı ve üretim tenant canary çalıştırıldı.</p></article><article><h3>Sıfır test kalıntısı</h3><p>Sentetik kullanıcı, kayıt ve dosyaların test sonunda temizlendiği doğrulandı.</p></article></div></section>
+    <section><h2>Ürün doğrulama kaydı hakkında sık sorulanlar</h2><details><summary>Bu bir müşteri vaka çalışması mı?</summary><p>Hayır. Bu sayfa yalnızca kontrollü ürün doğrulamasını açıklar; müşteri adı, logosu veya müşteri sonucu içermez.</p></details><details><summary>Gerçek üretim verisi kullanıldı mı?</summary><p>Hayır. Doğrulama sentetik şirket, kullanıcı ve iş kayıtlarıyla yapıldı.</p></details><details><summary>Test verileri sistemde bırakıldı mı?</summary><p>Hayır. Test kullanıcıları, kayıtları ve fiziksel test dosyaları doğrulama sonunda temizlendi.</p></details><details><summary>Bu kayıt performans garantisi verir mi?</summary><p>Hayır. İş akışı ve erişim kontrollerinin doğrulandığını gösterir; ticari sonuç veya süre garantisi değildir.</p></details></section>
+    <section><h2>İlgili PlanicWorks çözümleri</h2><ul><li><a href="/fuar-proje-yonetimi/">Fuar Proje Yönetimi</a></li><li><a href="/fuar-crm-yazilimi/">Fuar CRM Yazılımı</a></li><li><a href="/fuar-operasyon-yazilimi/">Fuar Operasyon Yazılımı</a></li></ul></section>
+  </main>
+  <footer>© 2026 PlanicWorks · Projenic Tasarım Mimarlık Ticaret Limited Şirketi</footer>
+</div></div>
+  </body>
+</html>
