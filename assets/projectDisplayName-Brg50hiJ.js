@@ -1,0 +1,1 @@
+function n(n,t=""){return function(n){for(const t of n){if("string"!=typeof t&&"number"!=typeof t)continue;const n=String(t).trim();if(n)return n}return""}([n?.brand,n?.title,n?.client_name,n?.name,n?.project_name,n?.briefs?.title,n?.briefs?.brand_name,t])}export{n as g};
