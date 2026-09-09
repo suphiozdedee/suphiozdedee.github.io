@@ -1,0 +1,48 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  background: #070b12;
+  color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #070b12;
+}
+
+main {
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: center;
+  gap: 18px;
+  padding: max(32px, env(safe-area-inset-top)) 24px max(32px, env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.brand {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+h1 {
+  margin: 8px 0 0;
+  font-size: 22px;
+}
+
+p {
+  margin: 0;
+  color: #a8b3c7;
+  font-size: 15px;
+}
+
+#turnstile-widget {
+  width: min(100%, 360px);
+  min-height: 70px;
+}

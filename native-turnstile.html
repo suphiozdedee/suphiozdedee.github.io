@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; img-src data: https://challenges.cloudflare.com; form-action 'none'"
+    />
+    <title>PlanicWorks güvenlik doğrulaması</title>
+    <link rel="stylesheet" href="/native-turnstile.css" />
+    <script defer src="/native-turnstile.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="brand">planicworks</div>
+      <h1>Güvenlik doğrulaması</h1>
+      <p id="status" role="status" aria-live="polite">Doğrulama hazırlanıyor…</p>
+      <div id="turnstile-widget"></div>
+    </main>
+  </body>
+</html>
