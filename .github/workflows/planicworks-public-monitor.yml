@@ -1,0 +1,45 @@
+name: PlanicWorks public monitor
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/planicworks-public-monitor.yml'
+      - '.github/scripts/planicworks-public-monitor*.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: planicworks-public-monitor
+  cancel-in-progress: false
+
+jobs:
+  public-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - name: Verify monitor behavior without network
+        run: node --test .github/scripts/planicworks-public-monitor.test.mjs
+      - name: Verify public production behavior
+        env:
+          # Only publicly shipped browser configuration belongs here; no secrets.
+          PLANICWORKS_SUPABASE_URL: 'https://iyghurinnageavhrctbd.supabase.co'
+          PLANICWORKS_SUPABASE_PUBLISHABLE_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml5Z2h1cmlubmFnZWF2aHJjdGJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NDkxODMsImV4cCI6MjA5MTMyNTE4M30.9CxEyNCSjsldsXAGDYbNHkcIrWtc1lVEnm18F5HvoDI'
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          export CHROME_BIN
+          node .github/scripts/planicworks-public-monitor.mjs
