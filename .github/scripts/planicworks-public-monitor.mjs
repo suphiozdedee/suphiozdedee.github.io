@@ -8,7 +8,9 @@ import { pathToFileURL } from 'node:url';
 
 const execute = promisify(execFile);
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-const routePaths = ['/', '/login', '/pricing', '/privacy', '/gizlilik', '/kvkk', '/terms', '/cookies', '/support'];
+const briefSlug = 'projenic-tasarim-mimarlik-tic-ltd-sti';
+const briefRoute = `brief/${briefSlug}`;
+const routePaths = ['/', '/login', '/pricing', '/privacy', '/gizlilik', '/kvkk', '/terms', '/cookies', '/support', `/${briefRoute}`];
 const providers = [
   ['create-iyzico-checkout', 503, 'PAYMENT_PROVIDER_DISABLED'],
   ['iyzico-webhook', 503, 'PAYMENT_PROVIDER_DISABLED'],
@@ -61,6 +63,22 @@ export async function runHttpChecks(config, { fetch = globalThis.fetch, sleep = 
     assert.equal(res.status, 401);
     assert.equal((await res.json()).code, '42501');
   });
+  await probe('brief:branding', async () => {
+    const res = await request(`${supabaseUrl}/functions/v1/exhibition-brief-intake`, {
+      method: 'POST', body: JSON.stringify({ action: 'branding', slug: briefSlug }),
+      headers: { apikey: publishableKey, Authorization: `Bearer ${publishableKey}`,
+        'Content-Type': 'application/json', Origin: 'https://planicworks.com' },
+    });
+    assert.equal(res.status, 200);
+    const brand = await res.json();
+    assert.equal(brand.ok, true);
+    assert.equal(brand.tenant?.slug, briefSlug);
+    assert.ok(typeof brand.tenant?.logoUrl === 'string');
+    const logo = new URL(brand.tenant.logoUrl);
+    assert.equal(logo.origin, supabaseUrl);
+    assert.match(logo.pathname, /^\/storage\/v1\/object\/sign\/company-branding\/company\/[a-f0-9-]{36}\/branding\/[^/]+$/i);
+    assert.ok(logo.searchParams.get('token'));
+  });
   await probe('release:sha', async () => {
     for (let attempt = 1; attempt <= 36; attempt++) {
       const res = await request(`${baseUrl}/release.json?expected=${expectedSha}&attempt=${attempt}&cache_bust=${Date.now()}`, {
@@ -83,9 +101,13 @@ export async function runBrowserChecks(baseUrl, chrome, exec = execute) {
     ['terms', /Kullanım|kullanım|Terms|Nutzungsbedingungen/],
     ['cookies', /Çerez|çerez|Cookie/],
     ['support', /Destek|destek|Support|Hilfe/],
+    [briefRoute, { test: html =>
+      /<h1\b[^>]*>\s*(?:Tasarım talebinizi birlikte netleştirelim\.|Let us clarify your design request together\.|Lassen Sie uns Ihre Designanfrage gemeinsam klären\.)\s*<\/h1>/i.test(html)
+      && /projenic/i.test(html)
+      && ['companyName', 'contactName', 'email'].every(field => new RegExp(`<input\\b[^>]*\\bid="brief-${field}"`).test(html)) }],
   ];
   const checks = [];
-  for (const [route, marker] of [['dashboard'], ['settings'], ['super-admin'], ...publicPages]) {
+  for (const [route, marker] of [['dashboard'], ['settings'], ['super-admin'], ['brief-talepleri'], ...publicPages]) {
     let passed = false;
     for (let attempt = 1; attempt <= 3; attempt++) {
       // Each attempt gets a separate empty profile; no customer session is used.
@@ -129,3 +151,4 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     process.exitCode = 1;
   }
 }
+
