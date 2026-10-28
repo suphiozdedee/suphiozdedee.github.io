@@ -1,0 +1,1 @@
+import{b as e}from"./i18n-exhibitionBrief-BgrRV8-7.js";const i=new Map(Object.entries(e.tr.exhibitionBrief.issues).map(([e,i])=>[i,e])),r=(e,r)=>{const t=i.get(e);return r(t?`exhibitionBrief.issues.${t}`:"common.unexpectedError")};export{r as l};
